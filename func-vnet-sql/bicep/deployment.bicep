@@ -3,8 +3,6 @@ targetScope = 'subscription'
 // resource groups
 @allowed([
   'eastus'
-  'centralus'
-  'westus'
 ])
 param location string = 'eastus'
 param rgVnet string = 'connectivity-services-rg'
@@ -19,8 +17,12 @@ param snetAddressPrefix string = '10.55.1.0/24'
 
 // function
 param funcAppName string = uniqueString('sampleapp')
-param appSku string
-param appSkuTier string
+
+@allowed([
+  'EP1'
+])
+param appSku string = 'EP1'
+param appSkuTier string = 'ElasticPremium'
 
 // app settings for db connection
 param sqlConnString string

@@ -11,9 +11,6 @@ param appName string
     sku.name = 'EP1'
     sku.tier = 'ElasticPremium'
 */
-@allowed([
-  'EP1'
-])
 param appSku string
 param appSkuTier string
 
@@ -31,15 +28,12 @@ param sqlConnString string
     sku.tier = 'Standard'
     properties.accesstier = 'Hot'
 */
-@allowed([
-  'Standard_LRS'
-])
 param storageSku string
 param storageSkuTier string
 param storageAccessTier string
 
 //remove dashes for storage account name
-var storageAccountName = toLower('stg${format('{0}sta', replace(appNameSuffix, '-', ''))}')
+var storageAccountName = toLower('stg${format('{0}', replace(appNameSuffix, '-', ''))}')
 
 
 // Storage Account
