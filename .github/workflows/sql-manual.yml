@@ -33,15 +33,14 @@ jobs:
     
     - name: Where are we?
       run: |
-        pwd
-        dir
+        dir ./Azurenaut/Azurenaut/iaas-sql-ghrunner
 
     - name: Azure SQL Deploy
       uses: Azure/sql-action@v1.3
       with:
         # The connection string, including authentication information, for the Azure SQL Server database.
         connection-string: ${{ secrets.IAAS_VM_SQL }} 
-        project-file: './iaas-sql-ghrunner/Database.sqlproj'
+        project-file: './Azurenaut/Azurenaut/iaas-sql-ghrunner/Database.sqlproj'
       
         
     - name: SQL Version
