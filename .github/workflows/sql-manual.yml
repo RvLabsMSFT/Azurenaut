@@ -30,11 +30,6 @@ jobs:
       run: echo "Hello ${{ github.event.inputs.name }}"
     
     - uses: actions/checkout@v1
-        
-    - name: SQL Version
-      run: |
-        echo "SQL Version via sqlcmd"
-        sqlcmd -S ${{ secrets.SQL_SERVER }} -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_SECRET }} -Q "SELECT @@version"
 
     - name: Azure SQL Deploy
       uses: Azure/sql-action@v1.3
@@ -42,8 +37,11 @@ jobs:
         # The connection string, including authentication information, for the Azure SQL Server database.
         connection-string: ${{ secrets.IAAS_VM_SQL }} 
         project-file: './iaas-sql-ghrunner/Database.sqlproj'
-      
-        
+       
+    - name: SQL Version
+      run: |
+        echo "SQL Version via sqlcmd"
+        sqlcmd -S ${{ secrets.SQL_SERVER }} -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_SECRET }} -Q "SELECT @@version"
 
         
         
