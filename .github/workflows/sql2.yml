@@ -1,0 +1,15 @@
+name: SQLConn
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    # Runs a single command using the runners shell
+    - name: Send greeting
+      run: echo "Hello TESTS"
