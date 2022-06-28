@@ -19,7 +19,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
-  greet:
+  SQLCMD:
     # The type of runner that the job will run on
     runs-on: self-hosted
 
@@ -34,8 +34,7 @@ jobs:
     - name: Where are we?
       run: |
         pwd
-        ls 
-        ls ./azurenaut
+        dir
 
     - name: Azure SQL Deploy
       uses: Azure/sql-action@v1.3
