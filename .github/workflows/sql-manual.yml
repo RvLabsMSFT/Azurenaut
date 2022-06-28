@@ -34,7 +34,7 @@ jobs:
     - name: Where are we?
       run: |
         pwd
-        ls -al
+        ls 
         ls ./azurenaut
 
     - name: Azure SQL Deploy
