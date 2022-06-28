@@ -38,6 +38,11 @@ jobs:
         connection-string: ${{ secrets.IAAS_VM_SQL }} 
         project-file: './iaas-sql-ghrunner/Database.sqlproj'
         
+    - name: Where are we?
+      run: |
+        pwd
+        ls -al
+        ls ./azurenaut
         
     - name: SQL Version
       run: |
