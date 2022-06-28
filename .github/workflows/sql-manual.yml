@@ -25,11 +25,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v2.1.0
-      with:
-        dotnet-version: 5.0.x
-    
     - uses: actions/checkout@v1
 
     - name: Azure SQL Deploy
@@ -37,12 +32,9 @@ jobs:
       with:
         # The connection string, including authentication information, for the Azure SQL Server database.
         connection-string: ${{ secrets.IAAS_VM_SQL }} 
-        project-file: './iaas-sql-ghrunner/Database.sqlproj'
+        sql-file: './iaas-sql-ghrunner/version.sql'
        
-    - name: SQL Version
-      run: |
-        echo "SQL Version via sqlcmd"
-        sqlcmd -S ${{ secrets.SQL_SERVER }} -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_SECRET }} -Q "SELECT @@version"
+
 
         
         
