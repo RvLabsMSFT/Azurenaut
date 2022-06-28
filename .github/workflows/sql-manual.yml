@@ -28,12 +28,15 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
+    
+    - uses: actions/checkout@v1
 
     - name: Azure SQL Deploy
       uses: Azure/sql-action@v1.3
       with:
         # The connection string, including authentication information, for the Azure SQL Server database.
         connection-string: ${{ secrets.IAAS_VM_SQL }} 
+        project-file: './iaas-sql-ghrunner/Database.sqlproj'
         
         
     - name: SQL Version
