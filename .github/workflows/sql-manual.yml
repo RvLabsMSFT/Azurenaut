@@ -30,6 +30,12 @@ jobs:
       run: echo "Hello ${{ github.event.inputs.name }}"
     
     - uses: actions/checkout@v1
+    
+    - name: Where are we?
+      run: |
+        pwd
+        ls -al
+        ls ./azurenaut
 
     - name: Azure SQL Deploy
       uses: Azure/sql-action@v1.3
@@ -37,12 +43,7 @@ jobs:
         # The connection string, including authentication information, for the Azure SQL Server database.
         connection-string: ${{ secrets.IAAS_VM_SQL }} 
         project-file: './iaas-sql-ghrunner/Database.sqlproj'
-        
-    - name: Where are we?
-      run: |
-        pwd
-        ls -al
-        ls ./azurenaut
+      
         
     - name: SQL Version
       run: |
