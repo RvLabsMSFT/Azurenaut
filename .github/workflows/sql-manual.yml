@@ -39,7 +39,7 @@ jobs:
     - name: SQL Version
       run: |
         echo "SQL Version via sqlcmd"
-        sqlcmd -S ${{ SQL_SERVER }} -U ${{ SQL_USER }} -P ${{ SQL_SECRET }} -Q "SELECT @@version"
+        sqlcmd -S ${{ secrets.SQL_SERVER }} -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_SECRET }} -Q "SELECT @@version"
         
         
         
